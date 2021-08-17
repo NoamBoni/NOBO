@@ -24,14 +24,12 @@ mongoose.connect(
 );
 
 const port = PORT || 8000;
-const server = app.listen(port, () => {
-    console.log(`App running on port ${port}`);
-});
+const server = app.listen(port, () =>
+    console.log(`App running on port ${port}`)
+);
 
 process.on('unhandledRejection', err => {
     console.log('UNHANDLED REJECTION');
     console.log(err);
     server.close(() => process.exit(1));
 });
-
-
