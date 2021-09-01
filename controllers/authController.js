@@ -101,8 +101,8 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
     const newURL = `${req.protocol}://
     ${req.get('host')}
     /api/v1/users/resetPassword/${resetToken}`;
-    const message = `Forgot your password to natours? click here ${newURL} to assign a new password. if you didn\'t ignore this`;
-    const subject = 'Reset password - natours';
+    const message = `Forgot your password to NOBO? click here ${newURL} to assign a new password. if you didn't ignore this`;
+    const subject = 'Reset password - NOBO';
 
     try {
         await sendEmail({ email: user.email, subject, message });

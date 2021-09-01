@@ -1,67 +1,6 @@
 const Tour = require('../models/tourModel');
-const APIFeatures = require('../utils/apiFeatures');
 const catchAsync = require('../utils/catchAsync');
-const AppError = require('../utils/appError');
-
-//we can use middliewares to update the query
-
-exports.getTours = catchAsync(async (req, res, next) => {
-    const features = new APIFeatures(Tour.find(), req.query)
-        .filter()
-        .sort()
-        .showFields()
-        .paginate();
-    const tours = await features.query;
-    res.status(200).json({
-        status: 'success',
-        results: tours.length,
-        data: { tours },
-    });
-});
-
-exports.addTour = catchAsync(async (req, res, next) => {
-    const newTour = await Tour.create(req.body);
-    res.status(200).json({
-        status: 'success',
-        data: { tour: newTour },
-    });
-});
-
-exports.getTour = catchAsync(async (req, res, next) => {
-    const tour = await Tour.findById(req.params.id);
-    tour
-        ? res.status(200).json({
-              status: 'success ',
-              data: { tour },
-          })
-        : next(new AppError('wrong id', 404));
-});
-
-exports.updateTour = catchAsync(async (req, res, next) => {
-    const tour = await Tour.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-        runValidators: true,
-    });
-    tour
-        ? res.status(200).json({
-              status: 'success',
-              tour,
-          })
-        : next(new AppError('wrong id', 404));
-});
-
-exports.deleteTour = catchAsync(async (req, res, next) => {
-    // const tour = await Tour.findByIdAndDelete(req.params.id);
-    Tour.findByIdAndDelete(req.params.id).catch(() =>
-        next(new AppError('wrong id', 404))
-    );
-    // tour ?
-        res.status(204).json({
-              status: 'success',
-              message: 'deleted',
-          })
-        // : next(new AppError('wrong id', 404));
-});
+const factory = require('./handlerFactory');
 
 exports.getTourStats = catchAsync(async (req, res, next) => {
     const stats = await Tour.aggregate([
@@ -140,3 +79,13 @@ exports.getMonthlyPlan = catchAsync(async (req, res, next) => {
         },
     });
 });
+
+exports.getTours = factory.getAll(Tour);
+
+exports.addTour = factory.createOne(Tour);
+
+exports.getTour = factory.getOne(Tour, true);
+
+exports.updateTour = factory.updateOne(Tour);
+
+exports.deleteTour = factory.deleteOne(Tour);
