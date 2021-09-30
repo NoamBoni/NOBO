@@ -1,4 +1,8 @@
-node_modules/
-public/
-dev-data/
-/config.env
+*/package-lock
+*/node_modules/
+*/public/
+
+server/dev-data/
+server/config.env
+
+client/src/images

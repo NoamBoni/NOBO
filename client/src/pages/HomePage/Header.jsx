@@ -1,0 +1,108 @@
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+import { Btn_white } from '../../style/Mixins';
+import backpic from '../../images/hero.jpg';
+import logo from '../../images/logo-white.png';
+
+const Top = styled.header`
+    position: relative;
+    height: 95vh;
+    background-image: linear-gradient(
+            to right bottom,
+            rgba(126, 213, 111, 0.8),
+            rgba(40, 180, 131, 0.8)
+        ),
+        url(${backpic});
+    background-size: cover;
+    background-position: top;
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    .logo {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+
+        img {
+            height: 35px;
+        }
+    }
+
+    .center {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+
+        h1 {
+            color: ${({theme})=>theme.white};
+            text-transform: uppercase;
+            backface-visibility: hidden;
+            margin-bottom: 60px;
+
+            span {
+                display: block;
+                animation-duration: 1s;
+                animation-timing-function: ease-out;
+            }
+
+            span:first-child {
+                font-size: 60px;
+                font-weight: 400;
+                letter-spacing: 35px;
+                animation-name: moveInLeft;
+            }
+
+            span:last-child {
+                font-size: 20px;
+                font-weight: 700;
+                letter-spacing: 15.8px;
+                animation-name: moveInRight;
+            }
+        }
+    }
+`;
+
+const NvgLink = styled(Link)`
+    ${Btn_white()}
+    text-transform: uppercase;
+    padding: 15px 40px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all 0.2s;
+    position: relative;
+
+    &:hover {
+        transform: translateY(-3px) scale(1.2);
+        box-shadow: 0 10px 20px ${({ theme }) => theme.shadow};
+    }
+
+    &:active {
+        transform: translateY(-1px) scale(1.1);
+        box-shadow: 0 5px 10px ${({ theme }) => theme.shadow};
+    }
+`;
+
+const Header = () => {
+    return (
+        <Top>
+            <div className='logo'>
+                <img src={logo} alt='logo' />
+            </div>
+            <div className='center'>
+                <h1>
+                    <span>Outdoors</span>
+                    <span>Is where life happens</span>
+                </h1>
+                <NvgLink to={'/' /*TODO add a link*/}>
+                    discover our tours
+                </NvgLink>
+            </div>
+        </Top>
+    );
+};
+
+export default Header;
