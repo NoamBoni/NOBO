@@ -9,7 +9,8 @@ const theme = {
     darkGrey: '#777',
     white: '#fff',
     black: '#000',
-    shadow:'rgba(0,0,0,.2)'
+    shadow: 'rgba(0,0,0,.2)',
+    dfltFontSize:'1.2rem'
 };
 
 export default function Theme(props) {

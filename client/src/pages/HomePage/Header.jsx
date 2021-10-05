@@ -49,14 +49,14 @@ const Top = styled.header`
             }
 
             span:first-child {
-                font-size: 60px;
+                font-size: 4rem;
                 font-weight: 400;
                 letter-spacing: 35px;
                 animation-name: moveInLeft;
             }
 
             span:last-child {
-                font-size: 20px;
+                font-size: 1.5rem;
                 font-weight: 700;
                 letter-spacing: 15.8px;
                 animation-name: moveInRight;
