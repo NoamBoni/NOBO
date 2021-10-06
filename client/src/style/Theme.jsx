@@ -6,11 +6,12 @@ const theme = {
     primaryColor: '#55c57a',
     primaryColorDark: '#28b485',
     lightGrey1: '#f7f7f7',
+    lightGrey2: '#aaa',
     darkGrey: '#777',
     white: '#fff',
     black: '#000',
     shadow: 'rgba(0,0,0,.2)',
-    dfltFontSize:'1.2rem'
+    dfltFontSize: '1.2rem',
 };
 
 export default function Theme(props) {

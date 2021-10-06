@@ -2,21 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { Btn_white } from '../../style/Mixins';
+import { btn_white,green_background_photo } from '../../style/Mixins';
 import backpic from '../../images/hero.jpg';
 import logo from '../../images/logo-white.png';
 
 const Top = styled.header`
     position: relative;
     height: 95vh;
-    background-image: linear-gradient(
-            to right bottom,
-            rgba(126, 213, 111, 0.8),
-            rgba(40, 180, 131, 0.8)
-        ),
-        url(${backpic});
-    background-size: cover;
-    background-position: top;
+    ${green_background_photo(backpic)}
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
     .logo {
@@ -66,7 +59,7 @@ const Top = styled.header`
 `;
 
 const NvgLink = styled(Link)`
-    ${Btn_white()}
+    ${btn_white()}
     text-transform: uppercase;
     padding: 15px 40px;
     text-decoration: none;
@@ -86,7 +79,7 @@ const NvgLink = styled(Link)`
     }
 `;
 
-const Header = () => {
+export default function Header(){
     return (
         <Top>
             <div className='logo'>
@@ -104,5 +97,3 @@ const Header = () => {
         </Top>
     );
 };
-
-export default Header;

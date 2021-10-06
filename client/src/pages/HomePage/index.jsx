@@ -3,17 +3,17 @@ import React from 'react';
 import Header from './Header';
 import About from './About';
 import Features from './Features';
+import Tours from './Tours';
 
-const HomePage = props => {
+export default function HomePage(props) {
     return (
         <>
             <Header />
             <main>
                 <About />
                 <Features />
+                <Tours />
             </main>
         </>
     );
-};
-
-export default HomePage;
+}

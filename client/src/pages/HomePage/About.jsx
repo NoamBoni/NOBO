@@ -5,40 +5,19 @@ import { Link } from 'react-router-dom';
 import nat1 from '../../images/nat-1-large.jpg';
 import nat2 from '../../images/nat-2-large.jpg';
 import nat3 from '../../images/nat-3-large.jpg';
+import {
+    green_background_title,
+    grey_shape_background,
+} from '../../style/Mixins';
 
 const Section = styled.section`
-    background-color: ${({ theme }) => theme.lightGrey1};
-    padding: 30vh 0;
-    margin-top: -20vh;
-    text-align: center;
-
-    h2 {
-        display: inline-block;
-        font-size: 2rem;
-        text-transform: uppercase;
-        font-weight: 700;
-        background-image: linear-gradient(
-            to right,
-            ${({ theme }) => theme.primaryColorLight},
-            ${({ theme }) => theme.primaryColorDark}
-        );
-        letter-spacing: 0.2rem;
-        transition: all 1s;
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-        margin-bottom: 4.5rem;
-
-        &:hover {
-            transform: skewY(1deg) skewX(7deg) scale(0.9);
-            text-shadow: 0.5rem 1rem 2rem ${({ theme }) => theme.shadow};
-        }
-    }
+    ${grey_shape_background()}
+    ${green_background_title(4.5,0.2)}
 `;
 
 const Container = styled.div`
     display: grid;
-    grid-template-rows: 60vh;
+    grid-template-rows:45vh;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2rem;
 
@@ -77,7 +56,7 @@ const Container = styled.div`
             width: 45%;
             box-shadow: 0 1.5rem 4rem ${({ theme }) => theme.shadow};
             position: absolute;
-            transition: all .2s;
+            transition: all 0.2s;
 
             &:hover {
                 z-index: 5;
@@ -127,7 +106,7 @@ const NvgLink = styled(Link)`
     }
 `;
 
-const About = () => {
+export default function About() {
     return (
         <Section>
             <h2>Exciting tours for adventurous people</h2>
@@ -159,6 +138,4 @@ const About = () => {
             </Container>
         </Section>
     );
-};
-
-export default About;
+}

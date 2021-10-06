@@ -1,8 +1,10 @@
-*/package-lock
-*/node_modules/
-*/public/
+/package-lock.json
+/node_modules
+/public
+/token.txt
+/.gitignore
 
-server/dev-data/
+server/dev-data
 server/config.env
 
 client/src/images
