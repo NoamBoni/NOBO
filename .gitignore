@@ -1,10 +1,13 @@
-*/package-lock.json
-*/node_modules/
-*/public/
 /token.txt
 /.gitignore
 
+/server/package-lock.json
+/server/public/
+/server/node_modules/
 /server/dev-data/
 /server/config.env
 
+/client/package-lock.json
+/client/public/
+/client/node_modules/
 /client/src/images/
