@@ -20,6 +20,7 @@ router
     .route('/')
     .get(getTours)
     .post(protect, restrictTo('admin', 'lead guide'), addTour);
+
 router.route('/tours-stats').get(getTourStats);
 
 router.use(protect, restrictTo('admin', 'lead guide'));
