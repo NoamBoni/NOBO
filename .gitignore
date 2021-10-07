@@ -4,7 +4,7 @@
 /token.txt
 /.gitignore
 
-server/dev-data/
-server/config.env
+/server/dev-data/
+/server/config.env
 
-client/src/images/
+/client/src/images/
