@@ -1,8 +1,10 @@
 import React from 'react';
+
+import { moveInLeft, moveInRight } from '../../style/keyframes';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { btn_white,green_background_photo } from '../../style/Mixins';
+import { btn_white, green_background_photo } from '../../style/Mixins';
 import backpic from '../../images/hero.jpg';
 import logo from '../../images/logo-white.png';
 
@@ -14,11 +16,11 @@ const Top = styled.header`
 
     .logo {
         position: absolute;
-        top: 40px;
-        left: 40px;
+        top: 4rem;
+        left: 4rem;
 
         img {
-            height: 35px;
+            height: 3.5rem;
         }
     }
 
@@ -30,29 +32,30 @@ const Top = styled.header`
         text-align: center;
 
         h1 {
-            color: ${({theme})=>theme.white};
+            color: ${({ theme }) => theme.white};
             text-transform: uppercase;
-            backface-visibility: hidden;
-            margin-bottom: 60px;
-
+            margin-bottom: 6rem;
+            
             span {
+                backface-visibility: hidden;
                 display: block;
                 animation-duration: 1s;
                 animation-timing-function: ease-out;
             }
 
             span:first-child {
-                font-size: 4rem;
+                font-size: 6rem;
                 font-weight: 400;
-                letter-spacing: 35px;
-                animation-name: moveInLeft;
+                letter-spacing: 3rem;
+                animation-name: ${moveInLeft};
             }
 
             span:last-child {
-                font-size: 1.5rem;
+                font-size: ${({ theme }) => theme.dfltFontSize};
                 font-weight: 700;
-                letter-spacing: 15.8px;
-                animation-name: moveInRight;
+                letter-spacing: 1.55rem;
+                animation-name: ${moveInRight};
+                transform: translatex(-0.8rem);
             }
         }
     }
@@ -61,25 +64,26 @@ const Top = styled.header`
 const NvgLink = styled(Link)`
     ${btn_white()}
     text-transform: uppercase;
-    padding: 15px 40px;
+    padding: 1.5rem 3.5rem;
     text-decoration: none;
     display: inline-block;
     border-radius: 100px;
     transition: all 0.2s;
     position: relative;
+    font-size: ${({ theme }) => theme.dfltFontSize};
 
     &:hover {
         transform: translateY(-3px) scale(1.2);
-        box-shadow: 0 10px 20px ${({ theme }) => theme.shadow};
+        box-shadow: 0 1rem 2rem ${({ theme }) => theme.shadow};
     }
 
     &:active {
         transform: translateY(-1px) scale(1.1);
-        box-shadow: 0 5px 10px ${({ theme }) => theme.shadow};
+        box-shadow: 0 0.5rem 0.1rem ${({ theme }) => theme.shadow};
     }
 `;
 
-export default function Header(){
+export default function Header() {
     return (
         <Top>
             <div className='logo'>
@@ -96,4 +100,4 @@ export default function Header(){
             </div>
         </Top>
     );
-};
+}

@@ -18,7 +18,7 @@ export const green_background_photo = picture => css`
 
 export const green_background_title = (margin, space) => css`
     h2 {
-        display: inline-block;
+        display: block;
         background-image: linear-gradient(
             to right,
             ${({ theme }) => theme.primaryColorLight},
@@ -27,7 +27,7 @@ export const green_background_title = (margin, space) => css`
         background-clip: text;
         -webkit-background-clip: text;
         color: transparent;
-        font-size: 2rem;
+        font-size: 3rem;
         text-transform: uppercase;
         font-weight: 700;
         letter-spacing: ${space}rem;

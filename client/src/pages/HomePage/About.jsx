@@ -12,17 +12,17 @@ import {
 
 const Section = styled.section`
     ${grey_shape_background()}
-    ${green_background_title(4.5,0.2)}
+    ${green_background_title(5,0.2)}
 `;
 
 const Container = styled.div`
     display: grid;
     grid-template-rows:45vh;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
+    grid-gap: 3rem;
 
     div {
-        padding: 0 3rem;
+        padding: 0 4.5rem;
     }
 
     .info {
@@ -35,14 +35,14 @@ const Container = styled.div`
         h3 {
             text-transform: uppercase;
             font-weight: 700;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.6rem;
         }
 
         p {
             font-weight: 400;
 
             &:not(:last-child) {
-                margin-bottom: 3rem;
+                margin-bottom: 4.5rem;
             }
         }
     }
@@ -54,15 +54,15 @@ const Container = styled.div`
 
         img {
             width: 45%;
-            box-shadow: 0 1.5rem 4rem ${({ theme }) => theme.shadow};
+            box-shadow: 0 2rem 4rem ${({ theme }) => theme.shadow};
             position: absolute;
             transition: all 0.2s;
 
             &:hover {
                 z-index: 5;
                 transform: scale(1.05);
-                outline-offset: 1rem;
-                outline: 1rem solid ${({ theme }) => theme.primaryColorDark};
+                outline-offset: 1.5rem;
+                outline: 1.5rem solid ${({ theme }) => theme.primaryColorDark};
             }
         }
 
@@ -87,14 +87,14 @@ const NvgLink = styled(Link)`
     color: ${({ theme }) => theme.primaryColor};
     display: inline-block;
     text-decoration: none;
-    padding: 7px;
+    padding: .7rem;
     border-bottom: 1px solid ${({ theme }) => theme.primaryColor};
     font-size: ${({ theme }) => theme.dfltFontSize};
-    transition: all 0.3s;
+    transition: all .3s;
 
     &:hover {
         transform: translateY(-3px);
-        box-shadow: 0 10px 20px ${({ theme }) => theme.shadow};
+        box-shadow: 0 1rem 2rem ${({ theme }) => theme.shadow};
         color: ${({ theme }) => theme.white};
         background-color: ${({ theme }) => theme.primaryColor};
         border-radius: 0.5rem;

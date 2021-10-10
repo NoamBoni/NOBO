@@ -32,7 +32,7 @@ const features = [
 
 const Section = styled.section`
     display: grid;
-    padding: 0 6rem;
+    padding: 0 9rem;
     grid-template-rows: 100vh;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 5rem;
@@ -41,11 +41,11 @@ const Section = styled.section`
     ${green_background_photo(backpic)}
     clip-path: polygon(0 20vh, 100% 0, 100% 80vh, 0 100%);
     text-align: center;
-    font-size: 1.2rem;
+    font-size: ${({ theme }) => theme.dfltFontSize};
 
     svg {
-        margin-bottom: 1rem;
-        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        font-size: 4.5rem;
         color: ${({ theme }) => theme.primaryColor};
     }
 `;

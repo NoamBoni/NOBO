@@ -11,7 +11,7 @@ const theme = {
     white: '#fff',
     black: '#000',
     shadow: 'rgba(0,0,0,.2)',
-    dfltFontSize: '1.2rem',
+    dfltFontSize: '1.7rem',
 };
 
 export default function Theme(props) {
